@@ -1,3 +1,5 @@
+-- MySQL Inserts
+
 -- Ativa o banco de dados para uso
 use oficina;
 
@@ -10,11 +12,13 @@ insert into cliente (nome, cpf, endereco, numero, bairro, cidade, uf)
 			('Anthony Martin Barros', '298.362.380-77', 'Quadra Quadra 1', 689, 'Incra 8 (Brazlândia)', 'Brasília', 'DF'),
 			('Giovanna Priscila Fernandes', '075.486.864-80', 'Vila Guilherme', 622, 'Condor', 'Belém', 'PA'),
 			('Sérgio Alexandre Murilo Carvalho', '261.255.384-35', 'Rua Felizardo Leite', 718, 'Centro', 'Patos', 'PB'),
+            ('Antonella Tatiane Carolina Nogueira', '634.945.354-93', 'Rua Rodolfo de Araújo Júnior', 930, 'Boa Viagem', 'Recife', 'PE'),
 			('Tereza Maya Souza', '557.237.163-79', 'Rua Cosme e Damião', 526, 'Cidade Industrial', 'Teresina', 'PI'),
-			('Antonella Tatiane Carolina Nogueira', '634.945.354-93', 'Rua Rodolfo de Araújo Júnior', 930, 'Boa Viagem', 'Recife', 'PE');
+            ('Edson André Kaique Brito', '917.759.524-60', 'Rua Jose Belarmino de Arruda', 984, 'Santa Luzia', 'Gravatá', 'PE'),
+            ('Luiza Clara Bianca Farias', '888.894.684-59', 'Rua Quarenta e Seis', 565, 'Lídia Queiroz', 'Vitória de Santo Antão', 'PE');
 
-insert into equipe (qtdIntegrantes)
-	values (2), (3), (3), (2), (2);
+insert into equipe (nome)
+	values ('Kirk'), ('Spock'), ('Uhura'), ('Mccoy'), ('Scott');
 
 insert into especialidade (nome)
 	values	('Motor'), ('Elétrica'), ('Lanternagem');
@@ -39,9 +43,9 @@ insert into veiculo (idCliente, idEquipe, modelo, placa)
             (3, 5, 'Charade TX 1.3 16V', 'GYA-4835'),
             (4, 2, '300 C 5.7 V8 16V 340cv', 'JFK-0010'),
             (5, 4, 'Rodeo 3.2 V6', 'ILD-7729'),
-            (6, 3, 'Stark 2.3 4WD 127cv', 'NAW-3658'),
+            (11, 3, 'Stark 2.3 4WD 127cv', 'NAW-3658'),
             (7, 1, 'Javali 3.0 4x4 Diesel', 'MXK-4316'),
-            (8, 1, 'Esprit S-4 2.2 16V', 'LWE-7554'),
+            (12, 1, 'Esprit S-4 2.2 16V', 'LWE-7554'),
             (9, 3, 'Cuore 0/TS0 85i', 'NAW-3756'),
             (10, 5, 'Buggy W. 1.6 8V', 'MTF-4097');
 
@@ -58,42 +62,42 @@ insert into os (idEquipe, dataEmissao, dataEntrega, valor, situacao)
             (5, '2023-01-05', '2023-01-25', 0.0, default);
 
 insert into peca (descricao, valor)
-	values	('Amortecedor dianteiro', 0.0),
-			('Farol de milha', 0.0),
-            ('Bomba de combustível', 0.0),
-            ('Grampo da borracha para-choque', 0.0),
-            ('Kit de embreagem', 0.0),
-            ('Chupeta de bateria', 0.0),
-            ('Rolamento diferencial', 0.0),
-            ('Bateria', 0.0),
-            ('Cabo da embreagem', 0.0),
-            ('Borracha da janela lateral traseira', 0.0);
+	values	('Amortecedor dianteiro', 583.40),
+			('Farol de milha', 124.90),
+            ('Bomba de combustível', 238.90),
+            ('Grampo da borracha para-choque', 3.49),
+            ('Kit de embreagem', 401.34),
+            ('Chupeta de bateria', 59.99),
+            ('Rolamento diferencial', 258.20),
+            ('Bateria', 579.0),
+            ('Cabo da embreagem', 129.0),
+            ('Borracha da janela lateral traseira', 56.07);
 
 insert into peca_os (idOS, idPeca, quantidade)
-	values	(10, 5, 1),
-			(1, 4, 2),
-            (5, 8, 2),
-            (2, 6, 1),
-            (9, 1, 1),
-            (7, 2, 2),
-            (3, 7, 1),
-            (6, 3, 1),
-            (4, 10, 2),
-            (8, 9, 1);
+	values	(10, 5, 1), -- 401.34
+			(1, 4, 2), -- 6,98
+            (5, 8, 1), -- 579.0
+            (2, 6, 1), -- 59.99
+            (9, 1, 1), -- 583.40
+            (7, 2, 2), -- 249,8
+            (3, 7, 1), -- 258.20
+            (6, 3, 1), -- 238.90
+            (4, 10, 2), -- 112,14
+            (8, 9, 1); -- 129.0
 
 insert into mao_de_obra (valor)
-	values	(0.0),
-			(0.0),
-            (0.0),
-            (0.0),
-            (0.0);
+	values	(1200.50),
+			(856.25),
+            (250.0),
+            (789.35),
+            (125.65);
 
 insert into servico (idMaoDeObra, tipo)
 	values	(4, default),
-			(1, default),
+			(1, 'Conserto'),
             (3, default),
             (5, default),
-            (2, default);
+            (2, 'Conserto');
 
 insert into servico_os (idServico, idOS, valor)
 	values	(1, 9, 0.0),

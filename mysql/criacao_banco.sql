@@ -28,8 +28,9 @@ alter table cliente auto_increment=1;
 -- Criação da tabela equipe
 create table equipe (
 	idEquipe int auto_increment,
-    qtdIntegrantes int not null,
-    constraint pk_equipe primary key(idEquipe)
+    nome enum('Kirk', 'Spock', 'Uhura', 'Mccoy', 'Scott') not null,
+    constraint pk_equipe primary key(idEquipe),
+    constraint unique_nome unique(nome)
 );
 
 alter table equipe auto_increment=1;
